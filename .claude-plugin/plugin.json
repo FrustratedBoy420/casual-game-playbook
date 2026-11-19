@@ -1,0 +1,10 @@
+{
+  "name": "casual-game-playbook",
+  "version": "1.0.0",
+  "description": "Systems-led playbook for building, launching and scaling free-to-play casual and puzzle mobile games as a portfolio: concept checks, shared Unity platform modules, monetization, ASO, UA creative hooks, KPI gates and kill/reskin/scale decisions.",
+  "author": { "name": "FrustratedBoy420", "url": "https://github.com/FrustratedBoy420" },
+  "homepage": "https://github.com/FrustratedBoy420/casual-game-playbook",
+  "repository": "https://github.com/FrustratedBoy420/casual-game-playbook",
+  "license": "MIT",
+  "keywords": ["game-development", "mobile-games", "unity", "casual-games", "puzzle-games", "monetization", "aso", "user-acquisition"]
+}

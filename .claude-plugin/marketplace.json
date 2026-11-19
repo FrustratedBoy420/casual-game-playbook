@@ -1,0 +1,20 @@
+{
+  "name": "casual-game-playbook",
+  "owner": { "name": "FrustratedBoy420", "url": "https://github.com/FrustratedBoy420" },
+  "metadata": {
+    "description": "Claude Code skills for building and scaling casual mobile games.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "casual-game-playbook",
+      "source": "./",
+      "description": "Systems-led playbook for building, launching and scaling casual and puzzle mobile games as a portfolio.",
+      "version": "1.0.0",
+      "author": { "name": "FrustratedBoy420" },
+      "license": "MIT",
+      "category": "development",
+      "keywords": ["game-development", "mobile-games", "unity"]
+    }
+  ]
+}

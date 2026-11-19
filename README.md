@@ -12,41 +12,75 @@ When you start a new game, Claude uses this playbook to:
 - run soft-launch tests against fixed KPI gates
 - decide whether to kill, iterate, reskin, park or scale, then extend winners into a franchise
 
-It is distilled from public teardowns of portfolio mobile studios. See [`references/case-study-spill-games.md`](references/case-study-spill-games.md).
+It is distilled from public teardowns of portfolio mobile studios. See [`case-study-spill-games.md`](skills/casual-game-playbook/references/case-study-spill-games.md).
 
 ## Install
 
-```bash
-# personal skill (all projects)
-git clone https://github.com/FrustratedBoy420/casual-game-playbook ~/.claude/skills/casual-game-playbook
+### Option 1: Claude Code plugin (recommended)
 
-# or project skill
-git clone https://github.com/FrustratedBoy420/casual-game-playbook .claude/skills/casual-game-playbook
+In Claude Code, run:
+
+```
+/plugin install casual-game-playbook --marketplace FrustratedBoy420/casual-game-playbook
 ```
 
-On Windows (PowerShell):
+On older Claude Code versions, use two steps:
+
+```
+/plugin marketplace add FrustratedBoy420/casual-game-playbook
+/plugin install casual-game-playbook@casual-game-playbook
+```
+
+Update later with `/plugin marketplace update casual-game-playbook`.
+
+### Option 2: skills CLI (Claude Code, Cursor, Codex and other agents)
+
+```bash
+npx skills add FrustratedBoy420/casual-game-playbook
+```
+
+### Option 3: Claude.ai or the Claude desktop app
+
+1. Download `casual-game-playbook.zip` from the [latest release](https://github.com/FrustratedBoy420/casual-game-playbook/releases/latest).
+2. In Claude, open **Settings → Capabilities → Skills** and upload the zip.
+
+### Option 4: manual copy
+
+```bash
+git clone https://github.com/FrustratedBoy420/casual-game-playbook /tmp/cgp
+cp -r /tmp/cgp/skills/casual-game-playbook ~/.claude/skills/
+```
+
+Windows (PowerShell):
 
 ```powershell
-git clone https://github.com/FrustratedBoy420/casual-game-playbook "$HOME\.claude\skills\casual-game-playbook"
+git clone https://github.com/FrustratedBoy420/casual-game-playbook "$env:TEMP\cgp"
+Copy-Item -Recurse "$env:TEMP\cgp\skills\casual-game-playbook" "$HOME\.claude\skills\"
 ```
 
-Claude Code loads it automatically. It triggers on requests like "start a new puzzle game", "plan monetization for my game", "write my store listing", "should I scale or kill this game?". You can also call it directly: `/casual-game-playbook`.
+## Use
+
+The skill triggers on requests like "start a new puzzle game", "plan monetization for my game", "write my store listing" or "should I scale or kill this game?". You can also call it directly with `/casual-game-playbook`.
 
 ## Structure
 
 ```
-SKILL.md                     workflow, principles, guardrails
-references/
-  kpi-gates.md               test stages, thresholds, decision tree, A/B rules
-  monetization.md            ad placements, remote-config keys, IAP ladder, economy
-  platform-modules.md        shared base modules, Unity layout, init order, event taxonomy
-  aso.md                     naming, package IDs, listing copy, screenshots, ratings
-  ua-creatives.md            hook matrix, video recipe, channels, budget pacing, geos
-  portfolio-ops.md           cadence, genre scoring, franchise, reskin/park/kill, team
-  case-study-spill-games.md  public teardown the playbook is based on
-templates/
-  game-brief.md  tech-plan.md  store-listing.md  creative-matrix.md
-  test-report.md  launch-checklist.md
+.claude-plugin/
+  plugin.json                plugin manifest
+  marketplace.json           marketplace manifest (this repo is its own marketplace)
+skills/casual-game-playbook/
+  SKILL.md                     workflow, principles, guardrails
+  references/
+    kpi-gates.md               test stages, thresholds, decision tree, A/B rules
+    monetization.md            ad placements, remote-config keys, IAP ladder, economy
+    platform-modules.md        shared base modules, Unity layout, init order, event taxonomy
+    aso.md                     naming, package IDs, listing copy, screenshots, ratings
+    ua-creatives.md            hook matrix, video recipe, channels, budget pacing, geos
+    portfolio-ops.md           cadence, genre scoring, franchise, reskin/park/kill, team
+    case-study-spill-games.md  public teardown the playbook is based on
+  templates/
+    game-brief.md  tech-plan.md  store-listing.md  creative-matrix.md
+    test-report.md  launch-checklist.md
 ```
 
 ## Guardrails built in
